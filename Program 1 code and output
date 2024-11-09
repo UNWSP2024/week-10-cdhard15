@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main
+{
+    static Scanner userInput = new Scanner(System.in);
+
+    static double CToF(double temp)
+    {
+        double f = temp/5*9+32;
+        return f;
+    }
+    public static void main(String[] args)
+    {
+        System.out.println("Enter a metal: ");
+        String name = userInput.nextLine();
+        System.out.println("Enter the density (g/cm^3): ");
+        String density = userInput.nextLine();
+        System.out.println("Enter the melting point (C): ");
+        String melt = userInput.nextLine();
+        System.out.println("Enter the boiling point (C): ");
+        String boil = userInput.nextLine();
+        System.out.println("Enter the hardness: ");
+        String hardness = userInput.nextLine();
+
+        double newMelt = CToF(Double.parseDouble(melt));
+        double newBoil = CToF(Double.parseDouble(boil));
+        
+        System.out.format("Metal name: %13s\n", name);
+        System.out.format("Density: %16s\n", density);
+        System.out.format("Melting point (F): %8s\n", newMelt);
+        System.out.format("Boiling point (F): %8s\n", newBoil);
+        System.out.format("Hardness: %14s\n", hardness);
+    }
+}
+
+OUTPUT:
+
+Enter a metal: 
+Iron
+Enter the density (g/cm^3): 
+7.87
+Enter the melting point (C): 
+1538
+Enter the boiling point (C): 
+2861
+Enter the hardness: 
+4.5
+Metal name:          Iron
+Density:             7.87
+Melting point (F):   2800.4
+Boiling point (F):   5181.8
+Hardness:            4.5
