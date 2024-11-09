@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Main
+{
+    static Scanner userInput = new Scanner(System.in);
+    static double computePayment(double loanAmt, double rate, int numPeriods)
+    {
+        double interest = (rate / 12)/100;
+        double numPerMonths = numPeriods * 12;
+        double numerator = interest * Math.pow(interest + 1, numPerMonths);
+        double denominator = Math.pow(interest + 1, numPerMonths) - 1;
+        double answer = loanAmt * (numerator / denominator);
+        return answer;
+    }
+
+    public static void main(String[] args)
+    {
+        System.out.println("Welcome to Monthly Mortgage Calculator");
+        System.out.print ("\nEnter principle: ");
+        double a = userInput.nextDouble();
+        System.out.print ("Enter yearly interest rate without percent: ");
+        double b = userInput.nextDouble();
+        System.out.print ("Enter number of years: ");
+        int c = userInput.nextInt();
+
+        System.out.format("\nThe monthly payment is $%.2f",computePayment(a,b,c));
+
+    }
+}
+ OUTPUT:
+
+Welcome to Monthly Mortgage Calculator
+
+Enter principle: 130000
+Enter yearly interest rate without percent: 4.75
+Enter number of years: 20
+
+The monthly payment is $840.09
